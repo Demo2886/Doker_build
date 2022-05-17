@@ -29,4 +29,3 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/Demo2886/docker_build:latest
