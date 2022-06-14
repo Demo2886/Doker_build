@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        k8s-files: [fromJson(needs.find-k8s-files.outputs.files)] 
+        k8s-files: ${{fromJson(needs.find-k8s-files.outputs.files)}} 
       fail-fast: false
     steps:
     - uses: actions/checkout@v2 
@@ -39,5 +39,5 @@ jobs:
         SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Post Content :rocket:'
         SLACK_TITLE: 'Kubeval checks'
-        SLACK_USERNAME: GitHub_Action
+        SLACK_USERNAME: 'GitHub_Action'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
