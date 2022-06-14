@@ -17,10 +17,10 @@ jobs:
   test-files:
     needs: find-k8s-files
     runs-on: ubuntu-latest
-    #strategy:
-      #matrix:
-        #k8s-files: ${{fromJson(needs.find-k8s-files.outputs.files)}} 
-      #fail-fast: false
+    strategy:
+      matrix:
+        k8s-files: [fromJson(needs.find-k8s-files.outputs.files)] 
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2 
     - name: Test files with kubeval
